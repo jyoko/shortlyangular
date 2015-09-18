@@ -1,0 +1,17 @@
+<div id='container'>
+<div class='navigation'>
+  <ul>
+    <li><a href='#links' class='index'>All Links</a></li>
+    <li><a href='#shorten' class='create'>Shorten</a></li>
+    <li><a ng-click='signout()' class='logout'>Logout</a></li>
+  </ul>      
+</div>
+<div class="creator">
+  <form name="urlForm" ng-submit='addLink()' novalidate>
+    <input class='text' type='url' name='url' ng-class="{error: urlForm.$dirty && urlForm.$invalid,clean: !urlForm.$invalid}" ng-model='link.url' ng-change='checkUrl()' required>
+    <button ng-disabled="urlForm.$invalid">shorten</button>
+  </form>
+  <img class='spinner' src='assets/spiffygif_46x46.gif'>
+  <div class='message'>{{message}}</div>
+</div>
+</div>

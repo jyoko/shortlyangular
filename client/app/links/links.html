@@ -1,0 +1,18 @@
+<div id='container'>
+  <div class='navigation'>
+    <ul>
+      <li><a href='#links' class='index'>All Links</a></li>
+      <li><a href='#shorten' class='create'>Shorten</a></li>
+      <li><a class='logout' ng-click='signout()'>Logout</a></li>
+    </ul>      
+  </div>
+  <input type="text" ng-model="search" placeholder="Search">
+  <div class='link' ng-repeat="link in data.links | orderBy:'-visits' | filter:search">
+    <img src='assets/redirect_icon.png'/>
+      <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+      <div class='title'>{{link.title}}</div>
+      <div class='original'>{{link.url}}</div>
+      <a href='http://localhost:8000/api/links/{{link.code}}'>{{link.base_url}}/{{link.code}}</a>
+      <!-- <a href='{{link.base_url}}/api/links/{{link.code}}'>{{link.base_url}}/api/links/{{link.code}}</a> -->
+  </div>
+</div>
